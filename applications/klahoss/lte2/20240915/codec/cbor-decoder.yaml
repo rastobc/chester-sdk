@@ -1,0 +1,104 @@
+version: 2
+type: decoder
+name: com.hardwario.chester.app.demo
+schema:
+  - message:
+    - sequence:
+    - timestamp:
+  - system:
+    - serial_number:
+    - uptime:
+    - voltage_rest:
+      - $div: 1000
+      - $fpp: 2
+    - voltage_load:
+      - $div: 1000
+      - $fpp: 2
+    - current_load:
+  - network:
+    - parameter:
+      - eest:
+      - ecl:
+      - rsrp:
+      - rsrq:
+      - snr:
+      - plmn:
+      - cid:
+      - band:
+      - earfcn:
+  - thermometer:
+    - temperature:
+      - $div: 100
+      - $fpp: 2
+  - accelerometer:
+    - acceleration_x:
+      - $div: 1000
+      - $fpp: 2
+    - acceleration_y:
+      - $div: 1000
+      - $fpp: 2
+    - acceleration_z:
+      - $div: 1000
+      - $fpp: 2
+    - orientation:
+  - buffer:
+  - custom:
+    - w1_thermometers:
+      - measurements_div:
+        - $tsp:
+          - min:
+            - $div: 100
+            - $fpp: 2
+          - max:
+            - $div: 100
+            - $fpp: 2
+          - avg:
+            - $div: 100
+            - $fpp: 2
+          - mdn:
+            - $div: 100
+            - $fpp: 2
+    - serial_number:
+    - channel:
+    - analog_channels:
+    - measurements_analog_channels:
+      - $tsp:
+        - mean_min:
+          - $div: 1000
+          - $fpp: 3
+        - mean_max:
+          - $div: 1000
+          - $fpp: 3
+        - mean_avg:
+          - $div: 1000
+          - $fpp: 3
+        - mean_mdn:
+          - $div: 1000
+          - $fpp: 3
+    - backup_state:
+      - $enum:
+        - inactive
+        - active
+    - line_voltage:
+      - $div: 1000
+      - $fpp: 2
+    - batt_voltage:
+      - $div: 1000
+      - $fpp: 2
+    - backup:
+    - backup_events:
+      - $tsp:
+        - type:
+          - $enum:
+            - disconnected
+            - connected
+    - buttons:
+    - button:
+    - button_events:
+      - $tsp:
+        - open:
+        - close:
+    - button_btn:
+    - button_tmp:
+    - count_open:
+    - count_close:

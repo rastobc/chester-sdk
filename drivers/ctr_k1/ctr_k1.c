@@ -509,7 +509,8 @@ static int ctr_k1_measure_(const struct device *dev, const enum ctr_k1_channel c
 		LOG_DBG("Channel %u: RMS (raw): %+.1f", ch, raw_rms[i]);
 
 		results[i].avg = results[i].avg / MAX_SAMPLE_COUNT;
-		results[i].rms = sqrtf(results[i].rms / MAX_SAMPLE_COUNT);
+		// results[i].rms = sqrtf(results[i].rms / MAX_SAMPLE_COUNT);
+		results[i].rms = raw_avg[i];
 
 		LOG_DBG("Channel %u: AVG (cal): %+.1f", ch, results[i].avg);
 		LOG_DBG("Channel %u: RMS (cal): %+.1f", ch, results[i].rms);
